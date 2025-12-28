@@ -8,6 +8,7 @@ Endpoints:
 """
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from pydantic import BaseModel, Field
@@ -68,6 +69,12 @@ class CompareResponse(BaseModel):
 
 
 # === API Endpoints ===
+
+@app.get("/")
+def root():
+    """Redirect to API documentation."""
+    return RedirectResponse(url="/docs")
+
 
 @app.post("/api/prices/quote", response_model=List[QuoteResponse])
 def get_quote(request: QuoteRequest, db: Session = Depends(get_db)):
