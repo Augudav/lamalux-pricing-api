@@ -15,4 +15,4 @@ COPY --chown=user . /app
 EXPOSE 7860
 
 # Generate sample data at startup, then run server
-CMD python loader.py && uvicorn main:app --host 0.0.0.0 --port 7860
+CMD python loader.py && uvicorn app:app --host 0.0.0.0 --port 7860
