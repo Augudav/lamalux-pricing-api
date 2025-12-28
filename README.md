@@ -22,3 +22,4 @@ Real-time insurance premium quotes API.
 ## Try it
 
 Visit `/docs` to test the API interactively.
+
